@@ -18,7 +18,7 @@ Deck.prototype.buildDeck = function(){
     });
   });
   return this;
-}
+};
 
 Deck.prototype.shuffle = function(){
   // Used https://bost.ocks.org/mike/shuffle/ to build shuffle logic
@@ -34,20 +34,20 @@ Deck.prototype.shuffle = function(){
     unshuffledEdge -= 1;
 
     // And swap the chosen card to the back
-    temp = this.cards[cardToShuffleIdx]
-    this.cards[cardToShuffleIdx] = this.cards[unshuffledEdge]
+    temp = this.cards[cardToShuffleIdx];
+    this.cards[cardToShuffleIdx] = this.cards[unshuffledEdge];
     this.cards[unshuffledEdge] = temp;
   }
-  return this
-}
+  return this;
+};
 
 Deck.prototype.reset = function(){
   this.buildDeck().shuffle();
-}
+};
 
 Deck.prototype.dealRandomCard = function(){
   return (this.cards.length > 0) ? this.cards.pop() : null;
-}
+};
 
 function Card(value, suit){
   this.value = value;
@@ -63,7 +63,7 @@ Player.prototype.takeCard = function(deck){
   // Method recieves a deck, and pulls a card from the deck to add to player's hand
   this.hand.push(deck.dealRandomCard());
   return this;
-}
+};
 
 Player.prototype.discard = function(cardIdx){
   // Method recieves a location of the card to remove and deletes it from player's hand.
@@ -71,6 +71,6 @@ Player.prototype.discard = function(cardIdx){
     this.hand.splice(cardIdx, 1);
   }
   return this;
-}
+};
 
 // NOW GO BUILD A GAME!
